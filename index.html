@@ -1,0 +1,1858 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>K-Wave Mission 선교 슬라이드</title>
+  <!-- 우아한 웹폰트 탑재 -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  
+  <style>
+    
+    /* 제로 베이스 여백 */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html, body {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background-color: #0f1115;
+      font-size: 16px;
+      transition: background-color 0.5s ease;
+    }
+
+    /* 테마별 색상셋 설정 */
+    /* 1. 경건한 사역 테마 */
+    body.theme-deep-mission {
+      background-color: #170911;
+      font-family: 'Nanum Myeongjo', Georgia, serif;
+      color: #F4EFEB;
+    }
+    body.theme-deep-mission .presentation-stage {
+      background-gradient: linear-gradient(135deg, #170911 0%, #200f19 100%);
+    }
+    body.theme-deep-mission .slide-interior {
+      background-color: #1f0d17;
+      border: 1px solid rgba(212, 175, 55, 0.15);
+      box-shadow: 0 40px 100px rgba(0,0,0,0.6);
+    }
+    body.theme-deep-mission .church-accent-line {
+      background: linear-gradient(90deg, transparent, #D4AF37, transparent);
+    }
+    body.theme-deep-mission .cover-title {
+      color: #D4AF37;
+    }
+    body.theme-deep-mission .verse-num {
+      color: #D4AF37;
+    }
+    body.theme-deep-mission .bible-badge {
+      background-color: rgba(212, 175, 55, 0.15);
+      border: 1px solid #D4AF37;
+      color: #D4AF37;
+    }
+    body.theme-deep-mission .stat-card {
+      background-color: #2b1421;
+      border-left: 5px solid #D4AF37;
+    }
+    body.theme-deep-mission .stat-number {
+      color: #D4AF37;
+    }
+    body.theme-deep-mission .list-bullet {
+      color: #D4AF37;
+    }
+
+    /* 2. 클래식 아이보리 테마 */
+    body.theme-sacred-ivory {
+      background-color: #ece7db;
+      font-family: 'Nanum Myeongjo', Georgia, serif;
+      color: #2e3532;
+    }
+    body.theme-sacred-ivory .presentation-stage {
+      background: #ece7db;
+    }
+    body.theme-sacred-ivory .slide-interior {
+      background-color: #FAF7F0;
+      border: 1px solid rgba(14, 92, 50, 0.1);
+      box-shadow: 0 30px 80px rgba(46, 53, 50, 0.12);
+    }
+    body.theme-sacred-ivory .church-accent-line {
+      background: linear-gradient(90deg, transparent, #0e5c32, transparent);
+    }
+    body.theme-sacred-ivory .cover-title {
+      color: #0e5c32;
+    }
+    body.theme-sacred-ivory .verse-num {
+      color: #0e5c32;
+    }
+    body.theme-sacred-ivory .bible-badge {
+      background-color: rgba(14, 92, 50, 0.1);
+      border: 1px solid #0e5c32;
+      color: #0e5c32;
+    }
+    body.theme-sacred-ivory .stat-card {
+      background-color: #ffffff;
+      border-left: 5px solid #0e5c32;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+    }
+    body.theme-sacred-ivory .stat-number {
+      color: #0e5c32;
+    }
+    body.theme-sacred-ivory .list-bullet {
+      color: #0e5c32;
+    }
+
+    /* 3. 우주적 슬레이트 */
+    body.theme-cosmic-slate {
+      background-color: #090c0f;
+      font-family: 'Inter', system-ui, sans-serif;
+      color: #f1f5f9;
+    }
+    body.theme-cosmic-slate .presentation-stage {
+      background: #090c0f;
+    }
+    body.theme-cosmic-slate .slide-interior {
+      background-color: #13171d;
+      border: 1px solid rgba(56, 189, 248, 0.12);
+      box-shadow: 0 40px 100px rgba(0,0,0,0.7);
+    }
+    body.theme-cosmic-slate .church-accent-line {
+      background: linear-gradient(90deg, transparent, #38bdf8, transparent);
+    }
+    body.theme-cosmic-slate .cover-title {
+      color: #ffffff;
+      text-shadow: 0 4px 20px rgba(56, 189, 248, 0.2);
+    }
+    body.theme-cosmic-slate .verse-num {
+      color: #38bdf8;
+    }
+    body.theme-cosmic-slate .bible-badge {
+      background-color: rgba(56, 189, 248, 0.15);
+      border: 1px solid #38bdf8;
+      color: #38bdf8;
+    }
+    body.theme-cosmic-slate .stat-card {
+      background-color: #1b2028;
+      border-left: 5px solid #38bdf8;
+    }
+    body.theme-cosmic-slate .stat-number {
+      color: #38bdf8;
+    }
+    body.theme-cosmic-slate .list-bullet {
+      color: #38bdf8;
+    }
+
+    /* 4. 스위스 미니멀 */
+    body.theme-swiss-light {
+      background-color: #f4f4f5;
+      font-family: 'Inter', system-ui, sans-serif;
+      color: #111111;
+    }
+    body.theme-swiss-light .presentation-stage {
+      background: #f4f4f5;
+    }
+    body.theme-swiss-light .slide-interior {
+      background-color: #ffffff;
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.06);
+    }
+    body.theme-swiss-light .church-accent-line {
+      background: #e11d48;
+    }
+    body.theme-swiss-light .cover-title {
+      color: #111111;
+      font-weight: 800;
+    }
+    body.theme-swiss-light .verse-num {
+      color: #e11d48;
+    }
+    body.theme-swiss-light .bible-badge {
+      background-color: #e11d48;
+      color: #ffffff;
+    }
+    body.theme-swiss-light .stat-card {
+      background-color: #f4f4f5;
+      border-left: 5px solid #111111;
+    }
+    body.theme-swiss-light .stat-number {
+      color: #e11d48;
+      font-weight: 800;
+    }
+    body.theme-swiss-light .list-bullet {
+      color: #e11d48;
+    }
+
+    /* 5. 다크 옵시디언 */
+    body.theme-dark-obsidian {
+      background-color: #07090c;
+      font-family: 'Inter', system-ui, sans-serif;
+      color: #f8fafc;
+    }
+    body.theme-dark-obsidian .presentation-stage {
+      background: #07090c;
+    }
+    body.theme-dark-obsidian .slide-interior {
+      background-color: #14181f;
+      border: 1px solid rgba(245, 199, 93, 0.25);
+      box-shadow: 0 25px 70px rgba(0,0,0,0.5);
+    }
+    body.theme-dark-obsidian .church-accent-line {
+      background: #f5c75d;
+    }
+    body.theme-dark-obsidian .cover-title {
+      color: #f8fafc;
+      font-weight: 800;
+    }
+    body.theme-dark-obsidian .verse-num {
+      color: #f5c75d;
+    }
+    body.theme-dark-obsidian .bible-badge {
+      background-color: rgba(245, 199, 93, 0.15);
+      border: 1px solid #f5c75d;
+      color: #f5c75d;
+    }
+    body.theme-dark-obsidian .stat-card {
+      background-color: #0b0d10;
+      border-left: 5px solid #f5c75d;
+    }
+    body.theme-dark-obsidian .stat-number {
+      color: #f5c75d;
+      font-weight: 800;
+    }
+    body.theme-dark-obsidian .list-bullet {
+      color: #f5c75d;
+    }
+
+
+    /* 기저 마스터 레이아웃 (16:9 슬라이드 홀더) */
+    .presentation-stage {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 64px; /* 하단 툴바 안전 공간 */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    /* 표준 PPT 1920x1080 뷰포트 배치 */
+    .slides-viewport {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 1920px;
+      height: 1080px;
+      transform-origin: center center;
+    }
+
+    .slide {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .slide.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    /* 슬라이드 화려한 카드 마운팅 */
+    .slide-interior {
+      position: relative;
+      width: 92%;
+      height: 90%;
+      border-radius: 20px;
+      padding: 80px 100px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      overflow: hidden;
+      transition: background-color 0.4s, border-color 0.4s, box-shadow 0.4s;
+    }
+
+    /* 1. 커버(표지) 레이아웃 스타일 */
+    .layout-cover .cover-container {
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+    }
+    .church-accent-line {
+      width: 250px;
+      height: 4px;
+      margin-bottom: 40px;
+      border-radius: 2px;
+    }
+    .cover-title {
+      font-size: 5.5rem;
+      font-weight: 800;
+      line-height: 1.25;
+      margin-bottom: 24px;
+      letter-spacing: -0.02em;
+    }
+    .cover-subtitle {
+      font-size: 2.5rem;
+      font-weight: 400;
+      opacity: 0.85;
+      line-height: 1.5;
+    }
+    .cover-footer {
+      margin-top: 60px;
+      font-size: 1.2rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      opacity: 0.45;
+    }
+
+    /* 2. 성경(말씀) 레이아웃 스타일 */
+    .layout-bible .bible-container {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+    }
+    .bible-badge {
+      align-self: flex-start;
+      padding: 6px 18px;
+      border-radius: 9999px;
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 30px;
+      letter-spacing: 0.1em;
+    }
+    .bible-title {
+      font-size: 3.5rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+    .bible-subtitle {
+      font-size: 2rem;
+      opacity: 0.7;
+      margin-bottom: 40px;
+    }
+    .bible-box {
+      flex: 1;
+      overflow-y: auto;
+      padding-right: 15px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .bible-verse-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 24px;
+      margin-bottom: 8px;
+    }
+    .verse-num {
+      font-size: 1.8rem;
+      font-weight: 700;
+      min-width: 40px;
+      text-align: right;
+      padding-top: 4px;
+    }
+    .verse-text {
+      font-size: 2.1rem;
+      line-height: 1.65;
+      opacity: 0.95;
+    }
+    .bible-paragraph {
+      font-size: 2.1rem;
+      line-height: 1.65;
+      opacity: 0.95;
+    }
+
+    /* 3. 통계(수치) 레이아웃 스타일 */
+    .layout-stats .stats-container {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+    .section-title {
+      font-size: 4rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+      letter-spacing: -0.01em;
+    }
+    .section-subtitle {
+      font-size: 2rem;
+      opacity: 0.6;
+      margin-bottom: 50px;
+    }
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 32px;
+      margin-top: 20px;
+    }
+    .stat-card {
+      padding: 40px;
+      border-radius: 12px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      transition: transform 0.3s;
+    }
+    .stat-card:hover {
+      transform: translateY(-4px);
+    }
+    .stat-number {
+      font-size: 4.5rem;
+      font-weight: 800;
+      margin-bottom: 12px;
+      line-height: 1;
+    }
+    .stat-label {
+      font-size: 1.8rem;
+      font-weight: 500;
+      line-height: 1.45;
+      opacity: 0.9;
+    }
+    .stat-card.plain {
+      background-color: rgba(255, 255, 255, 0.02);
+      border-left: 5px solid rgba(255, 255, 255, 0.15);
+    }
+    .stat-label-full {
+      font-size: 2.1rem;
+      line-height: 1.5;
+      opacity: 0.95;
+    }
+
+    /* 4. 불릿 리스트 레이아웃 스타일 */
+    .layout-list .list-container {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+    .list-box {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+      margin: 20px 0;
+    }
+    .list-item-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 24px;
+      opacity: 0;
+      animation: slideInItem 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+    .list-bullet {
+      font-size: 1.5rem;
+      padding-top: 8px;
+    }
+    .list-text {
+      font-size: 2.3rem;
+      line-height: 1.5;
+      font-weight: 500;
+    }
+    .list-footer-desc {
+      margin-top: auto;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding-top: 30px;
+      font-size: 1.6rem;
+      opacity: 0.6;
+      line-height: 1.6;
+    }
+
+    /* 5. 텍스트 레이아웃 */
+    .text-container {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+    .text-paragraphs {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+    .text-p {
+      font-size: 2.2rem;
+      line-height: 1.65;
+    }
+    .text-p-bullet {
+      font-size: 2.2rem;
+      line-height: 1.6;
+      padding-left: 20px;
+      opacity: 0.85;
+    }
+
+    /* 하단 통제 패널 */
+    .control-panel {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 64px;
+      background-color: #12141a;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 30px;
+      z-index: 100;
+    }
+    .control-left, .control-right {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+    .slide-indicator {
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: #94a3b8;
+    }
+    .theme-badge {
+      background-color: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      padding: 4px 12px;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      color: #e2e8f0;
+      font-family: inherit;
+    }
+    .control-center {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .nav-btn {
+      background-color: #1e293b;
+      border: 1px solid rgba(255,255,255,0.05);
+      color: #f8fafc;
+      padding: 8px 18px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 0.95rem;
+      font-weight: 600;
+      transition: all 0.2s;
+      outline: none;
+    }
+    .nav-btn:hover:not(:disabled) {
+      background-color: #334155;
+    }
+    .nav-btn:disabled {
+      opacity: 0.35;
+      cursor: not-allowed;
+    }
+    .active-run {
+      background-color: #059669;
+    }
+    .active-run:hover {
+      background-color: #047857;
+    }
+    .active-stop {
+      background-color: #dc2626;
+    }
+    .active-stop:hover {
+      background-color: #b91c1c;
+    }
+    .theme-select {
+      background-color: #1e293b;
+      border: 1px solid rgba(255,255,255,0.08);
+      color: #f1f5f9;
+      padding: 8px 14px;
+      border-radius: 6px;
+      outline: none;
+      cursor: pointer;
+      font-size: 0.9rem;
+    }
+
+    /* 단축키 도움말 오버레이 */
+    .help-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.85);
+      backdrop-filter: blur(8px);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s;
+    }
+    .help-overlay.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .help-box {
+      background-color: #1e293b;
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 16px;
+      padding: 40px;
+      max-width: 600px;
+      width: 90%;
+      box-shadow: 0 30px 60px rgba(0,0,0,0.5);
+    }
+    .help-box h3 {
+      font-size: 1.8rem;
+      color: #ffffff;
+      margin-bottom: 24px;
+      font-weight: 700;
+    }
+    .help-box ul {
+      list-style-type: none;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-bottom: 30px;
+    }
+    .help-box li {
+      font-size: 1.15rem;
+      color: #94a3b8;
+    }
+    .help-box strong {
+      color: #38bdf8;
+      display: inline-block;
+      min-width: 160px;
+    }
+    .help-close-btn {
+      background-color: #38bdf8;
+      color: #0f172a;
+      border: none;
+      padding: 12px 30px;
+      border-radius: 8px;
+      font-size: 1.1rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: block;
+      margin-left: auto;
+      transition: background-color 0.2s;
+    }
+    .help-close-btn:hover {
+      background-color: #0ea5e9;
+    }
+
+    .help-trigger-btn {
+      position: fixed;
+      bottom: 80px;
+      right: 30px;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background-color: #1e293b;
+      border: 1px solid rgba(255,255,255,0.1);
+      color: #f1f5f9;
+      font-size: 1.4rem;
+      font-weight: 700;
+      cursor: pointer;
+      z-index: 99;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background-color 0.2s;
+    }
+    .help-trigger-btn:hover {
+      background-color: #334155;
+    }
+
+    /* 리스트 아이템 서서히 드러나기 애니메이션 */
+    @keyframes slideInItem {
+      from {
+        opacity: 0;
+        transform: translateX(-30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    /* 발표자 모드 사이드바 및 레이아웃 이동 격자 */
+    body.presenter-mode-active .presentation-stage {
+      right: 380px !important;
+    }
+    
+    .presenter-sidebar {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 380px;
+      bottom: 64px;
+      background-color: #11141a;
+      border-left: 1px solid rgba(255,255,255,0.08);
+      display: flex;
+      flex-direction: column;
+      transform: translateX(100%);
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      z-index: 95;
+      padding: 24px;
+      gap: 20px;
+    }
+    
+    body.presenter-mode-active .presenter-sidebar {
+      transform: translateX(0);
+    }
+    
+    .sidebar-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      padding-bottom: 14px;
+      flex-shrink: 0;
+    }
+    
+    .sidebar-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #fbbf24;
+      letter-spacing: -0.01em;
+    }
+    
+    .lecture-timer {
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 1.05rem;
+      font-weight: bold;
+      background-color: rgba(5,150,105,0.15);
+      border: 1px solid rgba(5,150,105,0.4);
+      padding: 3px 10px;
+      border-radius: 6px;
+      color: #34d399;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .lecture-timer:hover {
+      background-color: rgba(220,38,38,0.15);
+      border-color: rgba(220,38,38,0.4);
+      color: #f87171;
+    }
+    
+    .sidebar-body {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      flex: 1;
+      min-height: 0;
+    }
+    
+    .sidebar-body .sidebar-section {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      flex: 1;
+      min-height: 0;
+    }
+    
+    .sidebar-body .sidebar-section.next-preview-sec {
+      flex: 0 0 auto;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding-top: 16px;
+    }
+    
+    .section-label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #64748b;
+      font-weight: 700;
+    }
+    
+    .notes-content-box {
+      flex: 1;
+      background-color: #161a22;
+      border: 1px solid rgba(255,255,255,0.04);
+      border-radius: 12px;
+      padding: 18px;
+      overflow-y: auto;
+      font-size: 1.1rem;
+      line-height: 1.7;
+      color: #cbd5e1;
+    }
+    
+    .presenter-note-item {
+      margin-bottom: 14px;
+      word-break: break-all;
+      background-color: rgba(255,255,255,0.01);
+      padding: 8px 12px;
+      border-radius: 8px;
+      border-left: 3px solid #fbbf24;
+    }
+    
+    .presenter-note-item.empty {
+      color: #475569;
+      font-style: italic;
+      border-left: 3px dashed #475569;
+      background: transparent;
+      padding: 0;
+      font-size: 0.9rem;
+    }
+    
+    .next-slide-title {
+      background-color: #161a22;
+      border: 1px dashed rgba(255,255,255,0.1);
+      border-radius: 8px;
+      padding: 14px;
+      font-size: 0.92rem;
+      color: #94a3b8;
+      line-height: 1.5;
+    }
+
+    /* 개별 슬라이드 정렬 및 글자 스케일 */
+    .slide.align-left .slide-interior {
+      align-items: flex-start !important;
+      text-align: left !important;
+    }
+    .slide.align-left .bible-badge {
+      align-self: flex-start !important;
+    }
+    .slide.align-left .list-item-row {
+      justify-content: flex-start !important;
+      text-align: left !important;
+    }
+    
+    .slide.align-center .slide-interior {
+      align-items: center !important;
+      text-align: center !important;
+    }
+    .slide.align-center .bible-badge {
+      align-self: center !important;
+    }
+    .slide.align-center .list-item-row {
+      justify-content: center !important;
+      text-align: center !important;
+    }
+    .slide.align-center .bible-container,
+    .slide.align-center .stats-container,
+    .slide.align-center .list-container,
+    .slide.align-center .text-container {
+      align-items: center !important;
+      text-align: center !important;
+    }
+
+    .slide.align-right .slide-interior {
+      align-items: flex-end !important;
+      text-align: right !important;
+    }
+    .slide.align-right .bible-badge {
+      align-self: flex-end !important;
+    }
+    .slide.align-right .list-item-row {
+      justify-content: flex-end !important;
+      text-align: right !important;
+    }
+    .slide.align-right .bible-container,
+    .slide.align-right .stats-container,
+    .slide.align-right .list-container,
+    .slide.align-right .text-container {
+      align-items: flex-end !important;
+      text-align: right !important;
+    }
+
+    /* 포지션 스케일 */
+    .slide.size-normal {
+      /* 디폴트 배율 */
+    }
+    .slide.size-large {
+      font-size: 1.18em !important;
+    }
+    .slide.size-large .cover-title { font-size: 6.5rem !important; }
+    .slide.size-large .cover-subtitle { font-size: 3rem !important; }
+    .slide.size-large .bible-title, 
+    .slide.size-large .section-title { font-size: 4.1rem !important; }
+    .slide.size-large .bible-subtitle, 
+    .slide.size-large .section-subtitle { font-size: 2.3rem !important; }
+    .slide.size-large .verse-text, 
+    .slide.size-large .bible-paragraph, 
+    .slide.size-large .list-text, 
+    .slide.size-large .text-p, 
+    .slide.size-large .text-p-bullet { font-size: 2.45rem !important; }
+    .slide.size-large .stat-number { font-size: 5rem !important; }
+    .slide.size-large .stat-label { font-size: 1.85rem !important; }
+
+    .slide.size-xl {
+      font-size: 1.38em !important;
+    }
+    .slide.size-xl .cover-title { font-size: 7.6rem !important; }
+    .slide.size-xl .cover-subtitle { font-size: 3.45rem !important; }
+    .slide.size-xl .bible-title, 
+    .slide.size-xl .section-title { font-size: 4.8rem !important; }
+    .slide.size-xl .bible-subtitle, 
+    .slide.size-xl .section-subtitle { font-size: 2.7rem !important; }
+    .slide.size-xl .verse-text, 
+    .slide.size-xl .bible-paragraph, 
+    .slide.size-xl .list-text, 
+    .slide.size-xl .text-p, 
+    .slide.size-xl .text-p-bullet { font-size: 2.85rem !important; }
+    .slide.size-xl .stat-number { font-size: 5.8rem !important; }
+    .slide.size-xl .stat-label { font-size: 2.15rem !important; }
+
+    .slide.size-xxl {
+      font-size: 1.6em !important;
+    }
+    .slide.size-xxl .cover-title { font-size: 8.8rem !important; }
+    .slide.size-xxl .cover-subtitle { font-size: 4rem !important; }
+    .slide.size-xxl .bible-title, 
+    .slide.size-xxl .section-title { font-size: 5.6rem !important; }
+    .slide.size-xxl .bible-subtitle, 
+    .slide.size-xxl .section-subtitle { font-size: 3.15rem !important; }
+    .slide.size-xxl .verse-text, 
+    .slide.size-xxl .bible-paragraph, 
+    .slide.size-xxl .list-text, 
+    .slide.size-xxl .text-p, 
+    .slide.size-xxl .text-p-bullet { font-size: 3.3rem !important; }
+    .slide.size-xxl .stat-number { font-size: 6.7rem !important; }
+    .slide.size-xxl .stat-label { font-size: 2.5rem !important; }
+  
+  </style>
+</head>
+<body class="theme-deep-mission">
+
+  <!-- 마스터 스테이지 (16:9 비율 고정 가상 뷰포트) -->
+  <div class="presentation-stage" id="presentation-stage">
+    <div class="slides-viewport" id="slides-viewport">
+      
+      <!-- Slide 1 -->
+      <div class="slide active layout-cover align-left size-normal" data-slide-index="0">
+        <div class="slide-interior">
+          
+        <div class="cover-container">
+          
+          <div class="church-accent-line"></div>
+          <h1 class="cover-title">OO 받기 위해 태어난 사람</h1>
+          <h2 class="cover-subtitle">누가복음 6장 22절~26절</h2>
+          <div class="cover-footer">Presentation System</div>
+        </div>
+      
+        </div>
+        <!-- 숨겨진 메모 홀더 및 다음페이지 스펙 -->
+        <div class="raw-notes-holder" style="display: none;">
+          <div class="p-note">박 교수님 인트로: 따뜻하게 웃으며 회중들과 시선을 마주하십시오. 이 땅이 아닌 저 영적 본향에 있는 참된 상급을 예고하며 기대를 고조시킬 차례입니다.</div>
+        </div>
+        <div class="raw-next-title" style="display: none;">
+          2페이지: 누가복음 6장 22절~26절
+        </div>
+      </div>
+    
+
+      <!-- Slide 2 -->
+      <div class="slide  layout-bible align-left size-normal" data-slide-index="1">
+        <div class="slide-interior">
+          
+        <div class="bible-container">
+          <div class="bible-badge">성경 말씀</div>
+          <h2 class="bible-title">누가복음 6장 22절~26절</h2>
+          
+          <div class="bible-box">
+            
+            <div class="bible-verse-row">
+              <span class="verse-num">22</span>
+              <p class="verse-text">인자로 말미암아 사람들이 너희를 미워하며 멀리하고 욕하고 너희 이름을 악하다 하여 버릴 때에는 너희에게 복이 있도다</p>
+            </div>
+          
+            <div class="bible-verse-row">
+              <span class="verse-num">23</span>
+              <p class="verse-text">그 날에 기뻐하고 뛰놀라 하늘에서 너희 상이 큼이라 그들의 조상들이 선지자들에게 이와 같이 하였느니라</p>
+            </div>
+          
+            <div class="bible-verse-row">
+              <span class="verse-num">24</span>
+              <p class="verse-text">그러나 화 있을진저 너희 부요한 자여 너희는 너희의 위로를 이미 받았도다</p>
+            </div>
+          
+            <div class="bible-verse-row">
+              <span class="verse-num">25</span>
+              <p class="verse-text">화 있을진저 너희 지금 배부른 자여 너희는 주리리로다 화 있을진저 너희 지금 웃는 자여 너희가 애통하며 울리로다</p>
+            </div>
+          
+            <div class="bible-verse-row">
+              <span class="verse-num">26</span>
+              <p class="verse-text">모든 사람이 너희를 칭찬하면 화가 있도다 그들의 조상들이 거짓 선지자들에게 이와 같이 하였느니라</p>
+            </div>
+          
+          </div>
+        </div>
+      
+        </div>
+        <!-- 숨겨진 메모 홀더 및 다음페이지 스펙 -->
+        <div class="raw-notes-holder" style="display: none;">
+          <div class="p-note">구절 낭독 시 엄숙하면서도 은혜로운 목소리 톤을 유지하고, 세상의 칭찬과 하늘나라 보화 간의 대조적인 영적 지형을 단호하게 설명하십시오.</div>
+        </div>
+        <div class="raw-next-title" style="display: none;">
+          3페이지: 사역 보고
+        </div>
+      </div>
+    
+
+      <!-- Slide 3 -->
+      <div class="slide  layout-list align-left size-normal" data-slide-index="2">
+        <div class="slide-interior">
+          
+        <div class="list-container">
+          <div class="bible-badge">선교 현황</div>
+          <h2 class="section-title">사역 보고</h2>
+          
+          <div class="list-box">
+            
+        <div class="list-item-row" style="animation-delay: 0s">
+          <div class="list-bullet">●</div>
+          <div class="list-text">현지 대학, 국내 대학과의 교류 증가</div>
+        </div>
+      
+        <div class="list-item-row" style="animation-delay: 0.1s">
+          <div class="list-bullet">●</div>
+          <div class="list-text">고등교육선교 개척, 현지 교회 협력</div>
+        </div>
+      
+        <div class="list-item-row" style="animation-delay: 0.2s">
+          <div class="list-bullet">●</div>
+          <div class="list-text">은혜로운 한국 생활 감사</div>
+        </div>
+      
+        <div class="list-item-row" style="animation-delay: 0.30000000000000004s">
+          <div class="list-bullet">●</div>
+          <div class="list-text">쉐마글로벌스쿨과의 협력</div>
+        </div>
+      
+          </div>
+          
+        </div>
+      
+        </div>
+        <!-- 숨겨진 메모 홀더 및 다음페이지 스펙 -->
+        <div class="raw-notes-holder" style="display: none;">
+          <div class="p-note">현지 대학 사역 교류 성과와 협력을 사진/영상과 교감하듯 구체적으로 열거하여, 기도의 결실임을 밝혀주세요.</div>
+        </div>
+        <div class="raw-next-title" style="display: none;">
+          4페이지: 한국의 위상 (1) (세계 여권 파워 순위)
+        </div>
+      </div>
+    
+
+      <!-- Slide 4 -->
+      <div class="slide  layout-stats align-left size-normal" data-slide-index="3">
+        <div class="slide-interior">
+          
+        <div class="stats-container">
+          <div class="bible-badge">통계 분석</div>
+          <h2 class="section-title">한국의 위상 (1)</h2>
+          <p class="section-subtitle">세계 여권 파워 순위</p>
+          <div class="stats-grid">
+              <div class="stat-card">
+                <div class="stat-number">1위</div>
+                <div class="stat-label">싱가포르 (192개국)</div>
+              </div>
+            
+              <div class="stat-card">
+                <div class="stat-number">2위</div>
+                <div class="stat-label">대한민국, 일본 (188개국)</div>
+              </div>
+            
+              <div class="stat-card">
+                <div class="stat-number">3위</div>
+                <div class="stat-label">덴마크, 룩셈부르크, 스페인, 스웨덴, 스위스 (186개국)</div>
+              </div>
+            </div>
+        </div>
+      
+        </div>
+        <!-- 숨겨진 메모 홀더 및 다음페이지 스펙 -->
+        <div class="raw-notes-holder" style="display: none;">
+          <div class="p-note">대한민국 여권의 외교적 신인도를 언급하며, 선교적 사명을 띠고 전 세계를 향해 나선 선교팀원들의 자긍심을 채워줄 것.</div>
+        </div>
+        <div class="raw-next-title" style="display: none;">
+          5페이지: 한국의 위상 (2) (높은 여권 파워의 조건)
+        </div>
+      </div>
+    
+
+      <!-- Slide 5 -->
+      <div class="slide  layout-list align-left size-normal" data-slide-index="4">
+        <div class="slide-interior">
+          
+        <div class="list-container">
+          <div class="bible-badge">핵심 요약</div>
+          <h2 class="section-title">한국의 위상 (2)</h2>
+          <p class="section-subtitle">높은 여권 파워의 조건</p>
+          <div class="list-box">
+            
+        <div class="list-item-row" style="animation-delay: 0s">
+          <div class="list-bullet">●</div>
+          <div class="list-text">높은 경제력과 국가 신용도</div>
+        </div>
+      
+        <div class="list-item-row" style="animation-delay: 0.1s">
+          <div class="list-bullet">●</div>
+          <div class="list-text">낮은 국제 범죄 가담율과 안정성</div>
+        </div>
+      
+          </div>
+          
+        </div>
+      
+        </div>
+        <!-- 숨겨진 메모 홀더 및 다음페이지 스펙 -->
+        <div class="raw-notes-holder" style="display: none;">
+          
+        </div>
+        <div class="raw-next-title" style="display: none;">
+          6페이지: 한국인으로서 누릴 수 있는 특권
+        </div>
+      </div>
+    
+
+      <!-- Slide 6 -->
+      <div class="slide  layout-list align-left size-normal" data-slide-index="5">
+        <div class="slide-interior">
+          
+        <div class="list-container">
+          <div class="bible-badge">핵심 요약</div>
+          <h2 class="section-title">한국인으로서 누릴 수 있는 특권</h2>
+          
+          <div class="list-box">
+            
+        <div class="list-item-row" style="animation-delay: 0s">
+          <div class="list-bullet">●</div>
+          <div class="list-text">전 세계 자동출입국 심사대(e-Gate) 이용 (세계 최다)</div>
+        </div>
+      
+        <div class="list-item-row" style="animation-delay: 0.1s">
+          <div class="list-bullet">●</div>
+          <div class="list-text">세계에서 가장 넓은 워킹홀리데이 네트워크 (20개국, 세계 2위)</div>
+        </div>
+      
+        <div class="list-item-row" style="animation-delay: 0.2s">
+          <div class="list-bullet">●</div>
+          <div class="list-text">운전면허 상호인정 협정 (100여 개국, 세계 최상위)</div>
+        </div>
+      
+        <div class="list-item-row" style="animation-delay: 0.30000000000000004s">
+          <div class="list-bullet">●</div>
+          <div class="list-text">국제 장학금 및 취업 쿼터 우대</div>
+        </div>
+      
+          </div>
+          
+        </div>
+      
+        </div>
+        <!-- 숨겨진 메모 홀더 및 다음페이지 스펙 -->
+        <div class="raw-notes-holder" style="display: none;">
+          
+        </div>
+        <div class="raw-next-title" style="display: none;">
+          7페이지: 한국인으로서 태어날 확률
+        </div>
+      </div>
+    
+
+      <!-- Slide 7 -->
+      <div class="slide  layout-stats align-left size-normal" data-slide-index="6">
+        <div class="slide-interior">
+          
+        <div class="stats-container">
+          <div class="bible-badge">핵심 요약</div>
+          <h2 class="section-title">한국인으로서 태어날 확률</h2>
+          
+          <div class="stats-grid">
+              <div class="stat-card plain">
+                <div class="stat-label-full">전 세계 연간 출생아 수 : 약 1억 3,400만 명 (UN인구 통계 기준)</div>
+              </div>
+            
+              <div class="stat-card plain">
+                <div class="stat-label-full">대한민국 연간 출생아 수 : 약 23만 명 내외 (국내 통계청 기준)</div>
+              </div>
+            
+              <div class="stat-card">
+                <div class="stat-number">0.17%</div>
+                <div class="stat-label">한국인으로 태어날 확률 :</div>
+              </div>
+            
+              <div class="stat-card">
+                <div class="stat-number">18%</div>
+                <div class="stat-label">인도 , 중국 7%, 미국 2.73%, 무슬림 31~32%</div>
+              </div>
+            </div>
+        </div>
+      
+        </div>
+        <!-- 숨겨진 메모 홀더 및 다음페이지 스펙 -->
+        <div class="raw-notes-holder" style="display: none;">
+          
+        </div>
+        <div class="raw-next-title" style="display: none;">
+          8페이지: 무슬림들의 삶 (5대 의무)
+        </div>
+      </div>
+    
+
+      <!-- Slide 8 -->
+      <div class="slide  layout-list align-left size-normal" data-slide-index="7">
+        <div class="slide-interior">
+          
+        <div class="list-container">
+          <div class="bible-badge">핵심 요약</div>
+          <h2 class="section-title">무슬림들의 삶 (5대 의무)</h2>
+          
+          <div class="list-box">
+            
+        <div class="list-item-row" style="animation-delay: 0s">
+          <div class="list-bullet">●</div>
+          <div class="list-text">샤하다 / 신앙고백</div>
+        </div>
+      
+        <div class="list-item-row" style="animation-delay: 0.1s">
+          <div class="list-bullet">●</div>
+          <div class="list-text">살라트 / 예배 : 하루 5번</div>
+        </div>
+      
+        <div class="list-item-row" style="animation-delay: 0.2s">
+          <div class="list-bullet">●</div>
+          <div class="list-text">자카트 / 희사, 기부 : 순자산 중 2.5% 희사</div>
+        </div>
+      
+        <div class="list-item-row" style="animation-delay: 0.30000000000000004s">
+          <div class="list-bullet">●</div>
+          <div class="list-text">사움 / 단식 : 라마단 기간 30일</div>
+        </div>
+      
+        <div class="list-item-row" style="animation-delay: 0.4s">
+          <div class="list-bullet">●</div>
+          <div class="list-text">하지 / 성지순례 : 살아 있는 동안 1회 필수 (이슬람력 12번째 달)</div>
+        </div>
+      
+          </div>
+          
+        </div>
+      
+        </div>
+        <!-- 숨겨진 메모 홀더 및 다음페이지 스펙 -->
+        <div class="raw-notes-holder" style="display: none;">
+          
+        </div>
+        <div class="raw-next-title" style="display: none;">
+          9페이지: 발리 힌두교인들의 삶
+        </div>
+      </div>
+    
+
+      <!-- Slide 9 -->
+      <div class="slide  layout-list align-left size-normal" data-slide-index="8">
+        <div class="slide-interior">
+          
+        <div class="list-container">
+          <div class="bible-badge">핵심 요약</div>
+          <h2 class="section-title">발리 힌두교인들의 삶</h2>
+          
+          <div class="list-box">
+            
+        <div class="list-item-row" style="animation-delay: 0s">
+          <div class="list-bullet">●</div>
+          <div class="list-text">Ngkeban, Otonan, Metatah, Pawiwahan, Ngaben</div>
+        </div>
+      
+        <div class="list-item-row" style="animation-delay: 0.1s">
+          <div class="list-bullet">●</div>
+          <div class="list-text">Canang Sari</div>
+        </div>
+      
+        <div class="list-item-row" style="animation-delay: 0.2s">
+          <div class="list-bullet">●</div>
+          <div class="list-text">Nyepi, Ogoh-Ogoh, Galungan & Kuningan</div>
+        </div>
+      
+        <div class="list-item-row" style="animation-delay: 0.30000000000000004s">
+          <div class="list-bullet">●</div>
+          <div class="list-text">Tumpek Lendep, Tumpek Kandang, Tumpek Uduh</div>
+        </div>
+      
+        <div class="list-item-row" style="animation-delay: 0.4s">
+          <div class="list-bullet">●</div>
+          <div class="list-text">Odalan, Melukat</div>
+        </div>
+      
+          </div>
+          
+        </div>
+      
+        </div>
+        <!-- 숨겨진 메모 홀더 및 다음페이지 스펙 -->
+        <div class="raw-notes-holder" style="display: none;">
+          
+        </div>
+        <div class="raw-next-title" style="display: none;">
+          10페이지: 무슨 확률일까?
+        </div>
+      </div>
+    
+
+      <!-- Slide 10 -->
+      <div class="slide  layout-stats align-left size-normal" data-slide-index="9">
+        <div class="slide-interior">
+          
+        <div class="stats-container">
+          <div class="bible-badge">통계 분석</div>
+          <h2 class="section-title">무슨 확률일까?</h2>
+          
+          <div class="stats-grid">
+              <div class="stat-card">
+                <div class="stat-number">0.04%</div>
+                <div class="stat-label">(전 세계 2,500명 중 1명)</div>
+              </div>
+            
+              <div class="stat-card">
+                <div class="stat-number">0.00027%</div>
+                <div class="stat-label">(전 세계 38만 명 중 1명)</div>
+              </div>
+            
+              <div class="stat-card plain">
+                <div class="stat-label-full">세계적으로 종교학적, 인구학적으로 굉장히 희소성을 지닌 개척자</div>
+              </div>
+            </div>
+        </div>
+      
+        </div>
+        <!-- 숨겨진 메모 홀더 및 다음페이지 스펙 -->
+        <div class="raw-notes-holder" style="display: none;">
+          
+        </div>
+        <div class="raw-next-title" style="display: none;">
+          11페이지: 대한민국의 위기
+        </div>
+      </div>
+    
+
+      <!-- Slide 11 -->
+      <div class="slide  layout-stats align-left size-normal" data-slide-index="10">
+        <div class="slide-interior">
+          
+        <div class="stats-container">
+          <div class="bible-badge">통계 분석</div>
+          <h2 class="section-title">대한민국의 위기</h2>
+          
+          <div class="stats-grid">
+              <div class="stat-card">
+                <div class="stat-number">1위</div>
+                <div class="stat-label">데드크로스 : 전 세계 의 '인구 소멸 위기' (합계 출산율 0.6명대)</div>
+              </div>
+            
+              <div class="stat-card plain">
+                <div class="stat-label-full">피크 코리아 : 잠재성장률 추락, 높은 대외 의존도, 신성장 동력 부재</div>
+              </div>
+            
+              <div class="stat-card">
+                <div class="stat-number">90%</div>
+                <div class="stat-label">지정학적 & 안보 취약성 : 자유민주주의의 위협,  이상 에너지 수입</div>
+              </div>
+            
+              <div class="stat-card plain">
+                <div class="stat-label-full">극심한 '사회적 분열과 갈등' : 성별/세대/정치 갈등, 사회적 자본의 고갈</div>
+              </div>
+            </div>
+        </div>
+      
+        </div>
+        <!-- 숨겨진 메모 홀더 및 다음페이지 스펙 -->
+        <div class="raw-notes-holder" style="display: none;">
+          
+        </div>
+        <div class="raw-next-title" style="display: none;">
+          12페이지: 대한민국 교회의 위기
+        </div>
+      </div>
+    
+
+      <!-- Slide 12 -->
+      <div class="slide  layout-list align-left size-normal" data-slide-index="11">
+        <div class="slide-interior">
+          
+        <div class="list-container">
+          <div class="bible-badge">핵심 요약</div>
+          <h2 class="section-title">대한민국 교회의 위기</h2>
+          
+          <div class="list-box">
+            
+        <div class="list-item-row" style="animation-delay: 0s">
+          <div class="list-bullet">●</div>
+          <div class="list-text">양적 급감과 '가나안 성도'의 폭증</div>
+        </div>
+      
+        <div class="list-item-row" style="animation-delay: 0.1s">
+          <div class="list-bullet">●</div>
+          <div class="list-text">다음 세대(청년, 주일학교)의 멸종</div>
+        </div>
+      
+        <div class="list-item-row" style="animation-delay: 0.2s">
+          <div class="list-bullet">●</div>
+          <div class="list-text">개혁주의 신앙과 기독교 세계관 교육 쇠퇴</div>
+        </div>
+      
+        <div class="list-item-row" style="animation-delay: 0.30000000000000004s">
+          <div class="list-bullet">●</div>
+          <div class="list-text">전국 군부대교회 118곳 통폐합/폐쇄 : 인구 감소, 헌법재판소의 '종교행사 강제 위헌' 결정</div>
+        </div>
+      
+          </div>
+          
+        </div>
+      
+        </div>
+        <!-- 숨겨진 메모 홀더 및 다음페이지 스펙 -->
+        <div class="raw-notes-holder" style="display: none;">
+          
+        </div>
+        <div class="raw-next-title" style="display: none;">
+          13페이지: 복 받는 자와 저주 받는 자
+        </div>
+      </div>
+    
+
+      <!-- Slide 13 -->
+      <div class="slide  layout-list align-left size-normal" data-slide-index="12">
+        <div class="slide-interior">
+          
+        <div class="list-container">
+          <div class="bible-badge">핵심 요약</div>
+          <h2 class="section-title">복 받는 자와 저주 받는 자</h2>
+          
+          <div class="list-box">
+            
+        <div class="list-item-row" style="animation-delay: 0s">
+          <div class="list-bullet">●</div>
+          <div class="list-text">대한민국은 이미 복을 받은 나라</div>
+        </div>
+      
+        <div class="list-item-row" style="animation-delay: 0.1s">
+          <div class="list-bullet">●</div>
+          <div class="list-text">세상으로부터 칭찬을 받기 원하는 교회보다 핍박 받는 교회가 되어야</div>
+        </div>
+      
+        <div class="list-item-row" style="animation-delay: 0.2s">
+          <div class="list-bullet">●</div>
+          <div class="list-text">세상 속 그리스도인으로서 영혼의 복근을 키우자.</div>
+        </div>
+      
+          </div>
+          
+        </div>
+      
+        </div>
+        <!-- 숨겨진 메모 홀더 및 다음페이지 스펙 -->
+        <div class="raw-notes-holder" style="display: none;">
+          
+        </div>
+        <div class="raw-next-title" style="display: none;">
+          14페이지: 창세기 12장 2절(개역한글)
+        </div>
+      </div>
+    
+
+      <!-- Slide 14 -->
+      <div class="slide  layout-bible align-left size-normal" data-slide-index="13">
+        <div class="slide-interior">
+          
+        <div class="bible-container">
+          <div class="bible-badge">성경 말씀</div>
+          <h2 class="bible-title">창세기 12장 2절(개역한글)</h2>
+          
+          <div class="bible-box">
+            <p class="bible-paragraph">내가 너로 큰 민족을 이루고 네게 복을 주어 네 이름을 창대케 하리니 너는 복의 근원이 될찌라.</p>
+          </div>
+        </div>
+      
+        </div>
+        <!-- 숨겨진 메모 홀더 및 다음페이지 스펙 -->
+        <div class="raw-notes-holder" style="display: none;">
+          
+        </div>
+        <div class="raw-next-title" style="display: none;">
+          15페이지: 2026년 하반기 기도제목 (대한민국이 선교합니다.)
+        </div>
+      </div>
+    
+
+      <!-- Slide 15 -->
+      <div class="slide  layout-list align-left size-normal" data-slide-index="14">
+        <div class="slide-interior">
+          
+        <div class="list-container">
+          <div class="bible-badge">기도 제목</div>
+          <h2 class="section-title">2026년 하반기 기도제목</h2>
+          <p class="section-subtitle">대한민국이 선교합니다.</p>
+          <div class="list-box">
+            
+        <div class="list-item-row" style="animation-delay: 0s">
+          <div class="list-bullet">●</div>
+          <div class="list-text">내년 3명의 은퇴 교수님들 인도네시아 사역 준비</div>
+        </div>
+      
+        <div class="list-item-row" style="animation-delay: 0.1s">
+          <div class="list-bullet">●</div>
+          <div class="list-text">협력 중인 대학/기관/학교 등과 풍성한 열매를 나누도록</div>
+        </div>
+      
+        <div class="list-item-row" style="animation-delay: 0.2s">
+          <div class="list-bullet">●</div>
+          <div class="list-text">선교센터로 사용될 한국센터 외부 설립</div>
+        </div>
+      
+          </div>
+          
+        </div>
+      
+        </div>
+        <!-- 숨겨진 메모 홀더 및 다음페이지 스펙 -->
+        <div class="raw-notes-holder" style="display: none;">
+          
+        </div>
+        <div class="raw-next-title" style="display: none;">
+          마지막 슬라이드입니다.
+        </div>
+      </div>
+    
+    </div>
+  </div>
+
+  <!-- 발표자 모드 전용 사이드바 패널 -->
+  <div class="presenter-sidebar" id="presenter-sidebar">
+    <div class="sidebar-header">
+      <div class="sidebar-title">🎙️ 박 교수님 강연 비서 패널</div>
+      <div class="lecture-timer" id="lecture-timer" title="클릭 시 타이머가 처음부터 리셋됩니다">00:00:00</div>
+    </div>
+    
+    <div class="sidebar-body">
+      <div class="sidebar-section">
+        <div class="section-label">PAGE <span id="notes-page-idx">1</span> 강연용 스피치 메모</div>
+        <div class="notes-content-box" id="notes-content-box">
+          <!-- 강연 메모 동적 사출 -->
+        </div>
+      </div>
+
+      <div class="sidebar-section next-preview-sec">
+        <div class="section-label">다음 슬라이드 예고</div>
+        <div class="next-slide-title" id="next-slide-title">다음 슬라이드가 없습니다.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 하단 플로팅 컨트롤 레일 -->
+  <div class="control-panel" id="control-panel">
+    <div class="control-left">
+      <span class="slide-indicator" id="slide-indicator">1 / 15</span>
+      <span class="theme-badge">경건한 사역 (Deep Mission)</span>
+    </div>
+    <div class="control-center">
+      <button class="nav-btn" id="prev-btn" title="이전 (◀ / PageUp)">이전</button>
+      <button class="nav-btn active-run" id="play-btn" title="자동 슬라이드쇼 시작 (Space)">시작</button>
+      <button class="nav-btn" id="next-btn" title="다음 (▶ / PageDown / Space)">다음</button>
+    </div>
+    <div class="control-right">
+      <select class="theme-select" id="theme-select-box">
+        <option value="deep-mission" selected>경건한 사역 테마</option>
+        <option value="sacred-ivory" >클래식 크림 테마</option>
+        <option value="cosmic-slate" >우주적 슬레이트</option>
+        <option value="swiss-light" >스위스 미니멀</option>
+        <option value="dark-obsidian" >다크 옵시디언 테마</option>
+      </select>
+      <button class="nav-btn" id="notes-btn" title="발표자 메모 토글 (N)" style="border-color: rgba(251,191,36,0.35); color: #fbbf24;">N 발표자 메모</button>
+      <button class="nav-btn" id="fullscreen-btn" title="전체화면 (F)">F 전체화면</button>
+    </div>
+  </div>
+
+  <!-- 단축키 안내 오버레이 -->
+  <div class="help-overlay" id="help-overlay">
+    <div class="help-box">
+      <h3>단축키 안내</h3>
+      <ul>
+        <li><strong>다음 슬라이드:</strong> 오른쪽 방향키 (▶) / Spacebar / PageDown / 마우스 클릭</li>
+        <li><strong>이전 슬라이드:</strong> 왼쪽 방향키 (◀) / PageUp</li>
+        <li><strong>전체화면 토글:</strong> F 키 (대소문자 무관)</li>
+        <li><strong>처음으로 / 끝으로:</strong> Home / End 키</li>
+        <li><strong>도움말 끄기:</strong> Esc 또는 화면 클릭</li>
+      </ul>
+      <button class="help-close-btn" id="help-close-btn">확인</button>
+    </div>
+  </div>
+
+  <button class="help-trigger-btn" id="help-trigger-btn" title="단축키 도움말">?</button>
+
+  <script>
+    // 상태 관리
+    let currentSlide = 0;
+    const totalSlides = 15;
+    let isPlaying = false;
+    let playInterval = null;
+
+    // DOM 참조
+    const stage = document.getElementById('presentation-stage');
+    const viewport = document.getElementById('slides-viewport');
+    const slides = document.querySelectorAll('.slide');
+    const indicator = document.getElementById('slide-indicator');
+    const prevBtn = document.getElementById('prev-btn');
+    const nextBtn = document.getElementById('next-btn');
+    const playBtn = document.getElementById('play-btn');
+    const fullscreenBtn = document.getElementById('fullscreen-btn');
+    const themeSelectBox = document.getElementById('theme-select-box');
+    const helpOverlay = document.getElementById('help-overlay');
+    const helpCloseBtn = document.getElementById('help-close-btn');
+    const helpTriggerBtn = document.getElementById('help-trigger-btn');
+
+    // 발표자용 패널 DOM 참조
+    const notesBtn = document.getElementById('notes-btn');
+    const presenterSidebar = document.getElementById('presenter-sidebar');
+    const notesPageIdx = document.getElementById('notes-page-idx');
+    const notesContentBox = document.getElementById('notes-content-box');
+    const nextSlideTitle = document.getElementById('next-slide-title');
+    const timerEl = document.getElementById('lecture-timer');
+
+    // 16:9 렌더링 유지 기술 (Scale-to-Fit)
+    function resizeSlides() {
+      const stageWidth = stage.clientWidth;
+      const stageHeight = stage.clientHeight;
+      
+      const designWidth = 1920;
+      const designHeight = 1080;
+      
+      const scaleX = stageWidth / designWidth;
+      const scaleY = stageHeight / designHeight;
+      const scale = Math.min(scaleX, scaleY);
+      
+      viewport.style.transform = "translate(-50%, -50%) scale(" + scale + ")";
+    }
+
+    // 슬라이드 변경 메커니즘
+    function goToSlide(index) {
+      if (index < 0) index = 0;
+      if (index >= totalSlides) index = totalSlides - 1;
+
+      slides[currentSlide].classList.remove('active');
+      currentSlide = index;
+      slides[currentSlide].classList.add('active');
+
+      // 지표 갱신
+      indicator.textContent = (currentSlide + 1) + " / " + totalSlides;
+
+      // 이전/다음 버튼 비활성화 제어
+      prevBtn.disabled = currentSlide === 0;
+      nextBtn.disabled = currentSlide === totalSlides - 1;
+
+      // 발표자 강연 메모 및 다음 슬라이드 정보 동기화 업데이트
+      updatePresenterNotes();
+    }
+
+    function nextSlide() {
+      if (currentSlide < totalSlides - 1) {
+        goToSlide(currentSlide + 1);
+      } else if (isPlaying) {
+        togglePlay(); // 끝에 다다르면 자동 중지
+      }
+    }
+
+    // 발표자 강연 메모 갱신 알고리즘
+    function updatePresenterNotes() {
+      if (!notesContentBox) return;
+      notesPageIdx.textContent = currentSlide + 1;
+
+      const activeSlideEl = slides[currentSlide];
+      const rawNotes = activeSlideEl.querySelectorAll('.raw-notes-holder .p-note');
+      
+      if (rawNotes && rawNotes.length > 0) {
+        let textResult = '';
+        rawNotes.forEach(noteEl => {
+          textResult += '<div class="presenter-note-item">📖 ' + noteEl.innerHTML + '</div>';
+        });
+        notesContentBox.innerHTML = textResult;
+      } else {
+        notesContentBox.innerHTML = '<div class="presenter-note-item empty">⚠️ 이 슬라이드에는 등록된 박 교수님 강연 메모가 없습니다.<br>좌측 대본 텍스트에 "Note:" 혹은 "메모:" 키워드로 내용을 써주십시오.</div>';
+      }
+
+      const rawNext = activeSlideEl.querySelector('.raw-next-title');
+      if (rawNext && nextSlideTitle) {
+        nextSlideTitle.textContent = rawNext.textContent.trim();
+      } else if (nextSlideTitle) {
+        nextSlideTitle.textContent = "끝 (마지막 슬라이드)";
+      }
+    }
+
+    let presenterMode = false;
+    function togglePresenterMode() {
+      presenterMode = !presenterMode;
+      if (presenterMode) {
+        document.body.classList.add('presenter-mode-active');
+        notesBtn.style.backgroundColor = "#fbbf24";
+        notesBtn.style.color = "#000000";
+        notesBtn.style.borderColor = "#fbbf24";
+      } else {
+        document.body.classList.remove('presenter-mode-active');
+        notesBtn.style.backgroundColor = "";
+        notesBtn.style.color = "#fbbf24";
+        notesBtn.style.borderColor = "rgba(251,191,36,0.35)";
+      }
+      setTimeout(resizeSlides, 120);
+    }
+
+    // 타이머 가동 기믹 (스피치 흐름 관리)
+    let startTime = Date.now();
+    function updateTimer() {
+      if (!timerEl) return;
+      const elapsedMs = Date.now() - startTime;
+      const totalSecs = Math.floor(elapsedMs / 1000);
+      const hours = Math.floor(totalSecs / 3600);
+      const minutes = Math.floor((totalSecs % 3600) / 60);
+      const seconds = totalSecs % 60;
+      
+      const hStr = hours < 10 ? '0' + hours : hours;
+      const mStr = minutes < 10 ? '0' + minutes : minutes;
+      const sStr = seconds < 10 ? '0' + seconds : seconds;
+      
+      timerEl.textContent = hStr + ':' + mStr + ':' + sStr;
+    }
+    
+    setInterval(updateTimer, 1000);
+    
+    if (timerEl) {
+      timerEl.addEventListener('click', function() {
+        if (confirm('강연 진행 타이머를 처음 장단으로 리셋하시겠습니까?')) {
+          startTime = Date.now();
+          updateTimer();
+        }
+      });
+    }
+
+    function prevSlide() {
+      if (currentSlide > 0) {
+        goToSlide(currentSlide - 1);
+      }
+    }
+
+    // 마우스 클릭 시 다음 슬라이드로 이동 (컨트롤 바 및 발표자 사이드바 영역 외 클릭 시)
+    document.addEventListener('click', function(e) {
+      if (!document.getElementById('control-panel').contains(e.target) && 
+          !presenterSidebar.contains(e.target) && 
+          !helpOverlay.contains(e.target) && 
+          e.target !== helpTriggerBtn) {
+        nextSlide();
+      }
+    });
+
+    // 자동재생 토글
+    function togglePlay() {
+      if (isPlaying) {
+        clearInterval(playInterval);
+        playBtn.textContent = "시작";
+        playBtn.classList.remove('active-stop');
+        playBtn.classList.add('active-run');
+        isPlaying = false;
+      } else {
+        playInterval = setInterval(nextSlide, 4000); // 4초 주기
+        playBtn.textContent = "정지";
+        playBtn.classList.remove('active-run');
+        playBtn.classList.add('active-stop');
+        isPlaying = true;
+      }
+    }
+
+    // 전체화면 처리
+    function toggleFullscreen() {
+      if (!document.fullscreenElement) {
+        document.documentElement.requestFullscreen().catch(err => {
+          console.log("전체화면 활성화 오류:", err);
+        });
+      } else {
+        document.exitFullscreen();
+      }
+    }
+
+    // 이벤트 리스너 바인딩
+    window.addEventListener('resize', resizeSlides);
+    
+    prevBtn.addEventListener('click', prevSlide);
+    nextBtn.addEventListener('click', nextSlide);
+    playBtn.addEventListener('click', togglePlay);
+    fullscreenBtn.addEventListener('click', toggleFullscreen);
+    if (notesBtn) {
+      notesBtn.addEventListener('click', togglePresenterMode);
+    }
+
+    themeSelectBox.addEventListener('change', function(e) {
+      document.body.className = "theme-" + e.target.value;
+    });
+
+    helpTriggerBtn.addEventListener('click', function() {
+      helpOverlay.classList.add('active');
+    });
+
+    helpCloseBtn.addEventListener('click', function() {
+      helpOverlay.classList.remove('active');
+    });
+
+    helpOverlay.addEventListener('click', function(e) {
+      if (e.target === helpOverlay) {
+        helpOverlay.classList.remove('active');
+      }
+    });
+
+    // 키보드 네비게이션
+    document.addEventListener('keydown', function(e) {
+      switch (e.key) {
+        case 'n':
+        case 'N':
+          togglePresenterMode();
+          e.preventDefault();
+          break;
+        case 'ArrowRight':
+        case 'PageDown':
+          nextSlide();
+          e.preventDefault();
+          break;
+        case 'ArrowLeft':
+        case 'PageUp':
+          prevSlide();
+          e.preventDefault();
+          break;
+        case ' ': // Spacebar
+          if (isPlaying) {
+            togglePlay();
+          } else {
+            nextSlide();
+          }
+          e.preventDefault();
+          break;
+        case 'f':
+        case 'F':
+          toggleFullscreen();
+          break;
+        case 'Home':
+          goToSlide(0);
+          e.preventDefault();
+          break;
+        case 'End':
+          goToSlide(totalSlides - 1);
+          e.preventDefault();
+          break;
+        case 'Escape':
+          helpOverlay.classList.remove('active');
+          break;
+      }
+    });
+
+    // 시작 시 최적화 로드
+    resizeSlides();
+    goToSlide(0);
+    updatePresenterNotes();
+  </script>
+</body>
+</html>
